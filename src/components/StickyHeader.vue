@@ -1,16 +1,18 @@
 <template>
   <div class="root">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top position-sticky">
-      <button class="form-control" type="button" style="width: 50px" @click="toggleSellerSideBar">
-        <img src="../assets/settings_icon_128522.png" style="width: 20px">
-      </button>
-      <div class="form-group searchbar">
-        <input type="search" class="form-control " placeholder="Search" v-on:change="doSearch" v-model="query">
+    <nav class="navbar navbar-light bg-light sticky-top position-sticky">
+      <div class="container">
+        <button class="form-control form-control-sm" type="button" style="width: 50px" @click="toggleSellerSideBar">
+          <img src="../assets/settings_icon_128522.png" style="width: 20px">
+        </button>
+        <div class="form-group searchbar">
+          <input type="search" class="form-control form-control-sm" placeholder="Search" v-on:change="doSearch" v-model="query">
+        </div>
+        <a class="navbar-brand" href="#">RepBrowser 1.0</a>
+        <button class="form-control form-control-sm" type="button" style="width: 50px">
+          <img src="../assets/filter_icon_143777.png" style="width: 20px">
+        </button>
       </div>
-      <a class="navbar-brand" href="#">RepBrowser 1.0</a>
-      <button class="form-control" type="button" style="width: 50px">
-        <img src="../assets/filter_icon_143777.png" style="width: 20px">
-      </button>
     </nav>
   </div>
 </template>
@@ -53,5 +55,12 @@ export default {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
+    background-color: maroon!important;
+  }
+
+  a{
+    font-size: 17px;
+    font-weight: bold;
+    color: white!important;
   }
 </style>

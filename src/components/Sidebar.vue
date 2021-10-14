@@ -1,6 +1,6 @@
 <template>
   <div v-show="!isCollapsed" class="root ">
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar" :style="sideBarWidthStyle">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <span class="fs-8 seller-list-span">Seller list</span>
       </a>
@@ -17,8 +17,8 @@
               <input type="checkbox" class="custom-checkbox">
               <div class="checkbox-info">
                 <div> {{seller.name}}
-                  <span class="btn-sm btn-u" @click="() => updateSeller(seller.id)">[update]</span>
-                  <span class="btn-sm btn-u" @click="() => updateSellerInfo(seller.id)">[info-u]</span>
+                  <span class="btn-sm btn-u" @click="() => updateSeller(seller.id)" v-if="false">[update]</span>
+                  <span class="btn-sm btn-u" @click="() => updateSellerInfo(seller.id)" v-if="false">[info-u]</span>
                 </div>
                 <div class="s-id"> {{seller.id}} - {{seller.lastUpdated?.split("T")[0]}} <span @click="() => removeSeller(seller.id)">[x]</span></div>
                 <div class="items-amt">{{seller.itemsAmount}} Items</div>
@@ -63,10 +63,6 @@ export default {
     }
   },
   computed: {
-    sideBarWidthStyle(){
-      this.isCollapsed;
-      return { width: (this.isCollapsed) ? "50px;" : "230px;" }
-    },
     sellersSearched(){
       this.data;
       return _.filter(this.data, seller => {
@@ -140,20 +136,20 @@ export default {
   .spinner{
     width: 20px;
   }
-  .seller-list-span{
-    padding-top: 40px;
-  }
 
   .sidebar{
-    height: -webkit-fill-available;
+    height: 100%
   }
 
   .root{
-    position: absolute;
     z-index: 999;
+    min-width: 230px;
     width: 230px;
-    height: -webkit-fill-available;
+    height: 2000px;
+    margin-top: 90px;
+    border: 4px solid gray;
   }
+
   .nav-item{
     text-align: left;
     display: flex;

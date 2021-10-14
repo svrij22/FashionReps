@@ -44,7 +44,6 @@ export default {
 
 <style scoped>
   .root{
-    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -52,7 +51,7 @@ export default {
   }
 
   .item-container{
-    margin-top: 40px;
+    margin-top: 80px;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     width: 100%;

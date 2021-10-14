@@ -2,7 +2,7 @@
   <sticky-header  v-on:searchq="(q) => this.doSearch(q)" v-on:toggleseller="toggleSellerSideBar"/>
   <div class="content">
     <sidebar v-show="sellerSideBar"/>
-    <item-container :data="displayedItems" :isloading="isLoading" :containerstyle="collectionStyle"/>
+    <item-container :data="displayedItems" :isloading="isLoading"/>
   </div>
 </template>
 
@@ -19,8 +19,8 @@ export default {
     return {
       data: [],
       page: 0,
-      perpage: 25,
-      sellerSideBar: false,
+      perpage: 50,
+      sellerSideBar: true,
       isLoading: true
     }
   },
@@ -29,9 +29,6 @@ export default {
       this.perpage;
       this.data;
       return _.take(this.data, this.perpage);
-    },
-    collectionStyle(){
-      return (this.sellerSideBar) ? {'margin-left': '230px'} : "";
     },
   },
   methods: {
@@ -62,7 +59,7 @@ export default {
       var c = [document.scrollingElement.scrollHeight, document.body.scrollHeight, document.body.offsetHeight].sort(function (a, b) {
         return b - a
       }) // select longest candidate for scrollable length
-      return (window.innerHeight + window.scrollY + 2 >= c[0]) // compare with scroll position + some give
+      return (window.innerHeight + window.scrollY + 450 >= c[0]) // compare with scroll position + some give
     },
     scrolling() {
       if (this.atEnd()) {
@@ -83,6 +80,8 @@ export default {
 <style scoped>
   .content{
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     height: 100%;
     width: 100%;
   }
